@@ -2,16 +2,16 @@ spring:
   application:
     name: config-server
   profiles:
-    active: native , git
+    active: native #, git
   cloud:
     config:
       server:
         encrypt.enabled: false
         native:
           search-locations: classpath:/config
-        git:
-          uri: https://github.com/setung/spring-micro-service-study.git
-          searchPaths: licensingservice
+#        git:
+#          uri: https://github.com/setung/spring-micro-service-study.git
+#          searchPaths: licensingservice
 
 server:
   port: 8071
