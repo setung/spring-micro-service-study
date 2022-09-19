@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import study.licensingservice.model.License;
 import study.licensingservice.service.LicenseService;
 
+import java.util.List;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -44,5 +46,24 @@ public class LicenseController {
 	@DeleteMapping(value="/{licenseId}")
 	public ResponseEntity<String> deleteLicense(@PathVariable("licenseId") String licenseId) {
 		return ResponseEntity.ok(licenseService.deleteLicense(licenseId));
+	}
+
+/*	@GetMapping("/")
+	public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
+		return licenseService.getLicensesByOrganization(organizationId);
+	}*/
+
+	@GetMapping("/{licenseId}/{clientType}")
+	public License getLicensesWithClient( @PathVariable("organizationId") String organizationId,
+										  @PathVariable("licenseId") String licenseId,
+										  @PathVariable("clientType") String clientType) {
+
+		return licenseService.getLicense(licenseId, organizationId, clientType);
+	}
+
+	@GetMapping("/call/organization")
+	public String callOrganization(@PathVariable String organizationId) {
+		System.out.println("/call-organization");
+		return licenseService.callOrganization();
 	}
 }
