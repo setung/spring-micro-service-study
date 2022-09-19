@@ -36,6 +36,7 @@ dependencies {
 	implementation 'org.postgresql:postgresql'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 
+	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
 }
 
 dependencyManagement {

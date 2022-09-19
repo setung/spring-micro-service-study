@@ -48,10 +48,10 @@ public class LicenseController {
 		return ResponseEntity.ok(licenseService.deleteLicense(licenseId));
 	}
 
-/*	@GetMapping("/")
+	@GetMapping("/")
 	public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
 		return licenseService.getLicensesByOrganization(organizationId);
-	}*/
+	}
 
 	@GetMapping("/{licenseId}/{clientType}")
 	public License getLicensesWithClient( @PathVariable("organizationId") String organizationId,
